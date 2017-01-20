@@ -12,6 +12,11 @@ vital_dirs:
   - "~/projects/tests"
   - "~/projects/work"
   - "~/work"
+dirs_on_path:
+  - "~/.gem/ruby/2.3.0/bin"
+  - "~/.local/bin"
+  - "~/.node_modules_global/bin"
+  - "~/bin"
 pacman_packages:
   - alsa-lib
   - alsa-oss

@@ -1,0 +1,32 @@
+---
+- name: Set default editor to nano in /etc/bash.bashrc
+  lineinfile:
+    dest: "/etc/bash.bashrc"
+    regexp: "^export EDITOR="
+    line: "export EDITOR=nano"
+    state: present
+  become: yes
+- name: Set default editor to emacsclient for normal user
+  lineinfile:
+    dest: "~/.bashrc"
+    regexp: "^export EDITOR="
+    line: "export EDITOR=emacsclient"
+    state: present
+- name: Make 'e' alias for 'emacsclient'
+  lineinfile:
+    dest: "~/.bashrc"
+    regexp: "^alias e="
+    line: "alias e=emacsclient"
+    state: present
+- name: Modify default behavior of 'ls' by making its alias
+  lineinfile:
+    dest: "~/.bashrc"
+    regexp: "^alias ls="
+    line: "alias ls='ls --human-readable --almost-all --color=auto'"
+    state: present
+- name: Add some directories to the PATH
+  lineinfile:
+    dest: "~/.bashrc"
+    regexp: "^export PATH="
+    line: "export PATH={{ ':'.join(dirs_on_path) }}:$PATH"
+    state: present
