@@ -81,7 +81,7 @@
       lineinfile:
         dest: "/etc/mkinitcpio.conf"
         regexp: "^MODULES=.*$"
-        line: MODULES="{{ video_card_module }}"
+        line: "MODULES=\"{{ video_card_module }}\""
         state: present
       when: video_card_module is defined
 
