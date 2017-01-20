@@ -13,9 +13,10 @@ system (mostly for my later self, but you can use them as well).
 6. [Pacstrap](#pacstrap)
 7. [File system table](#file-system-table)
 8. [GRUB](#grub)
-9. [Play the root Ansible playbook](#playing-the-root-ansible-playbook)
+9. [Play the root Ansible playbook](#play-the-root-ansible-playbook)
 10. [Set passwords](#set-passwords)
 11. [Reboot](#reboot)
+12. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
 
 This text has been placed into public domain by its author, Mark Karpov.
 
@@ -243,3 +244,21 @@ Now, it's time to reboot:
 # swapoff /dev/sdxY # use your swap partition, if you've created one
 # reboot
 ```
+
+## Play the user Ansible playbook
+
+Clone contents of this repo to `/tmp` directory:
+
+```
+# git clone https://github.com/mrkkrp/arch-workstation.git /tmp/arch-workstation
+```
+
+`cd` into the repo, edit `vars/vars.yml` as needed, and play the root playbook:
+
+```
+# cd /tmp/arch-workstation/
+# ansible-playbook -K user-playbook.yml
+```
+
+This will ask for sudo password, enter it (use <kbd>↵ Enter</kbd> to finish
+input, it does not work with <kbd>C-m</kbd> well).
