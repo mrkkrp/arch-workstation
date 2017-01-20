@@ -8,6 +8,8 @@
 
   tasks:
 
+    - include: tasks/dirs.yml
+      tags: dirs
     - include: tasks/yaourt.yml
       tags: yaourt
     - include: tasks/bash.yml

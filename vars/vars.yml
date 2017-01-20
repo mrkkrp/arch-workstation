@@ -3,6 +3,15 @@ time_zone: Europe/Moscow
 video_card_brand: nvidia        # or intel, or amd_ati
 video_card_module: nvidia       # or radeon
 user_name: mark
+vital_dirs:
+  - "~/.local/bin"
+  - "~/.local/share"
+  - "~/Downloads"
+  - "~/projects/music"
+  - "~/projects/programs"
+  - "~/projects/tests"
+  - "~/projects/work"
+  - "~/work"
 pacman_packages:
   - alsa-lib
   - alsa-oss

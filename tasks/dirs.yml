@@ -1,0 +1,6 @@
+---
+- name: Ensure all necessary directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items: "{{ vital_dirs }}"
