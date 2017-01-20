@@ -56,7 +56,6 @@ pacman_packages:
   - git
   - glibc
   - gnutls
-  - google-chrome
   - gparted
   - grep
   - groff
@@ -135,7 +134,6 @@ pacman_packages:
   - thunar-volman
   - timidity++
   - timidity-freepats
-  - tmate
   - tmux
   - tor
   - tor-browser-en
@@ -157,4 +155,12 @@ pacman_packages:
   - xfce4
   - xfce4-xkb-plugin
   - zenity
-yaourt_packages: []
+manual_packages:
+  - package-query
+  - yaourt
+yaourt_packages:
+  - google-chrome
+  - mu-git
+  - telegram-desktop-bin
+  - tmate
+  - ttf-google-fonts-git

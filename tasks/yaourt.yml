@@ -1,0 +1,34 @@
+---
+- name: Create the Downloads directory
+  file:
+    path: "~/Downloads"
+    state: directory
+- name: Download archives of packages to install manually
+  get_url:
+    url: "https://aur.archlinux.org/cgit/aur.git/snapshot/{{ item }}.tar.gz"
+    dest: "~/Downloads"
+  with_items: "{{ manual_packages }}"
+- name: Uncompress packages for manual installation
+  unarchive:
+    src: "~/Downloads/{{ item }}.tar.gz"
+    dest: "~/Downloads"
+  with_items: "{{ manual_packages }}"
+- name: Build and install the packages from decompressed files
+  command: "makepkg -si --noconfirm"
+  args:
+    chdir: "~/Downloads/{{ item }}"
+  with_items: "{{ manual_packages }}"
+- name: Create yaourt-temp directory
+  file:
+    path: "~/yaourt-temp"
+    state: directory
+- name: Tell yaourt to use the yaourt-temp directory instead
+  lineinfile:
+    dest: "/etc/yaourtrc"
+    regexp: "^TMPDIR="
+    line: "TMPDIR=\"/home/{{ user_name }}/yaourt-temp\""
+    state: present
+  become: yes
+- name: Install packages with Yaourt
+  command: "yaourt -S --noconfirm {{ item }}"
+  with_items: "{{ yaourt_packages }}"
