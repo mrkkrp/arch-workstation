@@ -1,0 +1,11 @@
+[user]
+	email = {{ git_user_email }}
+	name = {{ git_user_name }}
+[url "https://{{ git_user_name }}@github.com"]
+    insteadOf = https://github.com
+[url "https://{{ git_user_name }}@git.gitbook.com"]
+    insteadOf = https://git.gitbook.com
+[credential]
+	helper = cache --timeout={{ git_cred_cache_timeout }}
+[core]
+	excludesfile = ~/.gitignore

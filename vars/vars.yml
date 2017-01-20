@@ -1,8 +1,14 @@
 host_name: arch
+user_name: mark
 time_zone: Europe/Moscow
 video_card_brand: nvidia        # or intel, or amd_ati
 video_card_module: nvidia       # or radeon
-user_name: mark
+git_user_email: markkarpov@opmbx.org
+git_user_name: mrkkrp
+git_cred_cache_timeout: 43200
+git_global_ignore:
+  - ".flycheck_*"
+  - "TAGS"
 vital_dirs:
   - "~/.local/bin"
   - "~/.local/share"

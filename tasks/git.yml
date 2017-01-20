@@ -1,0 +1,9 @@
+---
+- name: Generate global .gitconfig
+  template:
+    src: .gitconfig
+    dest: "~/.gitconfig"
+- name: Generate global .gitignore
+  template:
+    src: .gitignore
+    dest: "~/.gitignore"
