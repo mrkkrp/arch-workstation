@@ -175,3 +175,4 @@ yaourt_packages:
   - telegram-desktop-bin
   - tmate
   - ttf-google-fonts-git
+yaourt_work_dir: yaourt-work
