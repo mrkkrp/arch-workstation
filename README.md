@@ -17,6 +17,8 @@ system (mostly for my later self, but you can use them as well).
 10. [Set passwords](#set-passwords)
 11. [Reboot](#reboot)
 12. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
+13. [Optional: Setting default audio card](#optional-setting-default-audio-card)
+14. [Optional: Printer](#optional-printer)
 
 This text has been placed into public domain by its author, Mark Karpov.
 
@@ -262,3 +264,43 @@ Clone contents of this repo to `/tmp` directory:
 
 This will ask for sudo password, enter it (use <kbd>↵ Enter</kbd> to finish
 input, it does not work with <kbd>C-m</kbd> well).
+
+## Optional: Setting default audio card
+
+First get list of loaded sound modules and their order use this:
+
+```
+$ cat /proc/asound/modules
+```
+
+Create `/etc/modprobe.d/alsa-base.conf` and write stuff. Example:
+
+```
+options snd_mia index=0
+options snd_hda_intel index=1
+```
+
+The card with greatest index is the main. If index is `-2`, corresponding
+card will never be used.
+
+## Optional: Printer
+
+Start and enable `org.cups.cupsd.service`:
+
+```
+# systemctl start org.cups.cupsd.service
+# systemctl enable org.cups.cupsd.service
+```
+
+To add your printer, open your browser and visit `http://localhost:631`. Go
+to `Adding Printers and Classes` → `Add Printer`. When prompted for a
+username and password, log in as root. The name assigned to the printer does
+not matter, the same applies for “location” and “description”. Next, a list
+of devices to select from will be presented. The actual name of the printer
+shows up next to the label (e.g., next to USB Printer #1 for USB printers).
+Finally, choose the appropriate drivers and the configuration will be
+complete.
+
+You need to set your printer as default, so you can use it via `lpr` (Emacs
+uses `lpr`, for example): `Printers` → `Your Printer` → `Set as Server
+Default`.
