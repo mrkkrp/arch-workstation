@@ -1,0 +1,20 @@
+---
+- name: Download archive of latest Stack version for 64 bit Linux
+  get_url:
+    url: "https://www.stackage.org/stack/linux-x86_64"
+    dest: "/tmp/stack.tar.gz"
+- name: Unpack the archive
+  unarchive:
+    src: "/tmp/stack.tar.gz"
+    dest: "/tmp"
+- name: Copy the Stack executable to ~/.local/bin
+  shell: "cp /tmp/stack-*-linux-x86_64/stack ~/.local/bin/stack"
+  args:
+    creates: "~/.local/bin/stack"
+- name: Install latest GHC globally with Stack
+  command: "stack setup"
+- name: Install some Haskell tools globally
+  command: "stack install {{ item.name }}"
+  args:
+    creates: "~/.local/bin/{{ item.creates }}"
+  with_items: "{{ haskell_global_packages }}"

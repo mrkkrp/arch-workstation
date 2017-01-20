@@ -176,3 +176,16 @@ yaourt_packages:
   - tmate
   - ttf-google-fonts-git
 yaourt_work_dir: yaourt-work
+haskell_global_packages:
+  - name: cabal-install
+    creates: cabal
+  - name: dbmigrations
+    creates: moo
+  - name: happy
+    creates: happy
+  - name: hasktags
+    creates: hasktags
+  - name: hlint
+    creates: hlint
+  - name: neil
+    creates: neil
