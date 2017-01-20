@@ -1,0 +1,121 @@
+---
+- hosts: localhost
+  gather_facts: no
+  user: root
+  connection: local
+  vars_files:
+    - vars/vars.yml
+
+  tasks:
+
+    - name: Set host name
+      hostname:
+        name: "{{ host_name }}"
+
+    - name: Set time zone
+      timezone:
+        name: "{{ time_zone }}"
+
+    - name: Set locale
+      locale_gen:
+        name: en_US.UTF-8
+        state: present
+
+    - name: Install ntp
+      pacman:
+        name: ntp
+        state: latest
+    - name: Synchronize the clock with the network
+      command: "ntpd -qg"
+    - name: Update hardware clock from current software clock
+      command: "hwclock --systohc"
+    - name: Configure ntpdate service to update hardware clock as well
+      copy:
+        src: hwclock.conf
+        dest: "/etc/systemd/system/ntpdate.service.d/hwclock.conf"
+    - name: Enable ntpdate service
+      service:
+        name: ntpdate
+        enabled: yes
+
+    - name: Setup console font
+      copy:
+        src: vconsole.conf
+        dest: "/etc/vconsole.conf"
+
+    - name: Install basic packages for graphical X server
+      pacman:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - mesa
+        - xorg-server
+        - xorg-server-utils
+        - xorg-xinit
+
+    - block:
+        - name: Install packages for NVIDIA video card
+          pacman:
+            name: "{{ item }}"
+            state: present
+          with_items:
+            - nvidia
+            - libvdpau
+            - nvidia-libgl
+            - nvidia-settings
+            - nvidia-utils
+        - name: Configure NVIDIA video card
+          command: "nvidia-xconfig"
+      when: video_card_brand == "nvidia"
+    - name: Install packages for AMD/ATI video card
+      pacman:
+        name: xf86-video-ati
+        state: latest
+      when: video_card_brand == "amd/ati"
+    - name: Install packages for Intel video card
+      pacman:
+        name: xf86-video-intel
+        state: latest
+      when: video_card_brand == "intel"
+    - name: Ensure video card module is loaded early
+      lineinfile:
+        dest: "/etc/mkinitcpio.conf"
+        regexp: "^MODULES=.*$"
+        line: MODULES="{{ video_card_module }}"
+        state: present
+      when: video_card_module is defined
+
+    - name: Generate initial ramdisk environment
+      command: "mkinitcpio -p linux"
+
+    - name: Enable automatic internet connection on start
+      service:
+        name: dhcpcd
+        enabled: yes
+
+    - name: Create service to enable num lock on startup
+      copy:
+        src: numlockon.service
+        dest: "/etc/systemd/system/numlockon.service"
+    - name: Enable numlockon service
+      service:
+        name: numlockon
+        enabled: yes
+
+    - name: Create normal user
+      user:
+        name: "{{ user_name }}"
+        state: present
+        groups: audio
+    - name: Make the user a sudoer
+      lineinfile:
+        dest: "/etc/sudoers"
+        state: present
+        regexp: "^{{ user_name }}"
+        line: "{{ user_name }} ALL=(ALL) ALL"
+
+    - name: Install various other packages with pacman
+      pacman:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ pacman_packages }}"

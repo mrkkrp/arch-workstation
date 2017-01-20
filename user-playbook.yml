@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  gather_facts: no
+  user: "{{ user_name }}"
+  connection: local
+  vars_files:
+    - vars/vars.yml
+
+  tasks:
+
+    - include: tasks/yaourt.yml
+      tags: yaourt
+    - include: tasks/bash.yml
+      tags: bash
+    - include: tasks/fonts.yml
+      tags: fonts
+    - include: tasks/audio.yml
+      tags: audio
+    - include: tasks/git.yml
+      tags: git
+    - include: tasks/haskell.yml
+      tags: haskell
+    - include: tasks/emacs.yml
+      tags: emacs
+    - include: tasks/xfce.yml
+      tags: xcfe
+    - include: tasks/custom_apps.yml
+      tags: custom_apps
+    - include: tasks/projects_hierarchy.yml
+      tags: projects_hierarchy
