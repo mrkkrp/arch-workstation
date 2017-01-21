@@ -16,8 +16,6 @@
       tags: bash
     - include: tasks/fonts.yml
       tags: fonts
-    - include: tasks/audio.yml
-      tags: audio
     - include: tasks/git.yml
       tags: git
     - include: tasks/haskell.yml
