@@ -1,0 +1,16 @@
+---
+- name: Use good-looking rendering defaults
+  file:
+    path: "/etc/fonts/conf.d/{{ item }}"
+    src: "/etc/fonts/conf.avail/{{ item }}"
+    state: link
+  with_items:
+    - 10-sub-pixel-rgb.conf
+    - 11-lcdfilter-default.conf
+    - 10-hinting-slight.conf
+  become: yes
+- name: Put proper /etc/fonts/local.conf in place
+  copy:
+    src: local.conf
+    dest: "/etc/fonts/local.conf"
+  become: yes
