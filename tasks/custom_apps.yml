@@ -1,0 +1,53 @@
+---
+- name: Clone LSA repo
+  git:
+    repo: "https://github.com/mrkkrp/lsa.git"
+    dest: "/tmp/lsa"
+- name: Build LSA
+  command: "make"
+  args:
+    chdir: "/tmp/lsa"
+- name: Install LSA
+  command: "bash install.sh"
+  args:
+    creates: "/usr/bin/lsa"
+    chdir: "/tmp/lsa"
+  become: yes
+
+- name: Clone Flacize repo
+  git:
+    repo: "https://github.com/mrkkrp/flacize.git"
+    dest: "/tmp/flacize"
+- name: Install Flacize requirements
+  pip:
+    requirements: requirements.txt
+    chdir: "/tmp/flacize"
+  become: yes
+- name: Install Flacize
+  command: "bash install.sh"
+  args:
+    creates: "/usr/bin/flacize"
+    chdir: "/tmp/flacize"
+  become: yes
+
+- name: Clone mkm3u repo
+  git:
+    repo: "https://github.com/mrkkrp/mkm3u.git"
+    dest: "/tmp/mkm3u"
+- name: Install mkm3u
+  command: "bash install.sh"
+  args:
+    creates: "/usr/bin/mk3u"
+    chdir: "/tmp/mkm3u"
+  become: yes
+
+- name: Clone mupdf-page repo
+  git:
+    repo: "https://github.com/mrkkrp/mupdf-page.git"
+    dest: "/tmp/mupdf-page"
+- name: Copy the pdf script to ~/.local/bin
+  copy:
+    src: "/tmp/mupdf-page/pdf"
+    dest: "~/.local/bin/pdf"
+    remote_src: true
+    mode: 755
