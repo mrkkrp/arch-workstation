@@ -33,6 +33,7 @@ pacman_packages:
   - aspell-ru
   - audacity
   - audiofile
+  - autoconf
   - automake
   - aws-cli
   - banshee

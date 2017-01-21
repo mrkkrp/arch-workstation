@@ -1,7 +1,31 @@
 ---
+- name: Clone Emacs repo
+  git:
+    repo: "https://github.com/emacs-mirror/emacs.git"
+    dest: "~/Downloads/emacs"
+  register: emacs_source
+- block:
+    - name: Run autogen.sh
+      command: "bash autogen.sh"
+      args:
+        chdir: "~/Downloads/emacs"
+    - name: Run configure
+      command: "bash configure"
+      args:
+        chdir: "~/Downloads/emacs"
+    - name: Run make and build Emacs thunk
+      command: "make"
+      args:
+        chdir: "~/Downloads/emacs"
+    - name: Install the built Emacs
+      command: "make install"
+      args:
+        chdir: "/home/{{ user_name }}/Downloads/emacs"
+      become: yes
+  when: emacs_source.before != emacs_source.after
 - name: Clone repo that contains my Emacs configuration
   git:
-    repo: https://github.com/mrkkrp/dot-emacs.git
+    repo: "https://github.com/mrkkrp/dot-emacs.git"
     dest: "~/.emacs.d/"
 - name: Test startup and install Emacs packages as part of it
   command: "python test-startup.py"
