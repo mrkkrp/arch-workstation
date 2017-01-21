@@ -35,3 +35,7 @@
   command: "emacs --exec \"(progn (mk-compile-init-files) (mk-exit-emacs t))\""
   args:
     chdir: "~/.emacs.d"
+- name: Generate .offlineimaprc to be able to use Emacs as mail client
+  template:
+    src: .offlineimaprc
+    dest: "~/.offlineimaprc"

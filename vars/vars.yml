@@ -9,6 +9,7 @@ git_cred_cache_timeout: 43200
 git_global_ignore:
   - ".flycheck_*"
   - "TAGS"
+offline_imap_email: markkarpov@openmailbox.org
 vital_dirs:
   - "~/.local/bin"
   - "~/.local/share"
