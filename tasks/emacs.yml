@@ -1,0 +1,13 @@
+---
+- name: Clone repo that contains my Emacs configuration
+  git:
+    repo: https://github.com/mrkkrp/dot-emacs.git
+    dest: "~/.emacs.d/"
+- name: Test startup and install Emacs packages as part of it
+  command: "python test-startup.py"
+  args:
+    chdir: "~/.emacs.d"
+- name: Compile Emacs configuration
+  command: "emacs --exec \"(progn (mk-compile-init-files) (mk-exit-emacs t))\""
+  args:
+    chdir: "~/.emacs.d"
