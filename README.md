@@ -218,7 +218,8 @@ Clone contents of this repo to `/tmp` directory:
 # git clone https://github.com/mrkkrp/arch-workstation.git /tmp/arch-workstation
 ```
 
-`cd` into the repo, edit `vars/vars.yml` as needed, and play the root playbook:
+`cd` into the repo, edit `vars/vars.yml` as needed, and play the root
+playbook:
 
 ```
 # cd /tmp/arch-workstation/
@@ -255,7 +256,8 @@ Clone contents of this repo to `/tmp` directory:
 # git clone https://github.com/mrkkrp/arch-workstation.git /tmp/arch-workstation
 ```
 
-`cd` into the repo, edit `vars/vars.yml` as needed, and play the root playbook:
+`cd` into the repo, edit `vars/vars.yml` as needed, and play the user
+playbook:
 
 ```
 # cd /tmp/arch-workstation/
