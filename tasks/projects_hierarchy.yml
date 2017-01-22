@@ -1,0 +1,31 @@
+---
+- name: Clone Emacs Lisp projects
+  git:
+    repo: "https://github.com/mrkkrp/{{ item }}.git"
+    dest: "~/projects/programs/emacs-lisp/{{ item }}"
+  with_items: "{{ projects_to_clone.emacs_lisp }}"
+- name: Clone Haskell projects
+  git:
+    repo: "https://github.com/mrkkrp/{{ item }}.git"
+    dest: "~/projects/programs/haskell/{{ item }}"
+  with_items: "{{ projects_to_clone.haskell }}"
+- name: Hasky Mode projects
+  git:
+    repo: "https://github.com/hasky-mode/{{ item }}.git"
+    dest: "~/projects/programs/hasky-mode/{{ item }}"
+  with_items: "{{ projects_to_clone.hasky_mode }}"
+- name: Other projects
+  git:
+    repo: "https://github.com/mrkkrp/{{ item }}.git"
+    dest: "~/projects/programs/other/{{ item }}"
+  with_items: "{{ projects_to_clone.other }}"
+- name: Python projects
+  git:
+    repo: "https://github.com/mrkkrp/{{ item }}.git"
+    dest: "~/projects/programs/python/{{ item }}"
+  with_items: "{{ projects_to_clone.python }}"
+- name: Svod
+  git:
+    repo: "https://github.com/svod-music/{{ item }}.git"
+    dest: "~/projects/programs/svod/{{ item }}"
+  with_items: "{{ projects_to_clone.svod }}"

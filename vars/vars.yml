@@ -191,3 +191,60 @@ haskell_global_packages:
     creates: hlint
   - name: neil
     creates: neil
+projects_to_clone:
+  emacs_lisp:
+    - ace-popup-menu
+    - avy-menu
+    - char-menu
+    - common-lisp-snippets
+    - cyphejor
+    - ebal
+    - fix-input
+    - fix-word
+    - kill-or-bury-alive
+    - mmt
+    - modalka
+    - typit
+    - vimish-fold
+    - zzz-to-char
+  haskell:
+    - alga
+    - cue-sheet
+    - data-check
+    - flac
+    - flac-picture
+    - hspec-megaparsec
+    - htaglib
+    - identicon
+    - JuicyPixels-extra
+    - megaparsec
+    - megaparsec-site
+    - mida
+    - mrkkrp.github.io
+    - pagination
+    - path-io
+    - plan-b
+    - req
+    - req-conduit
+    - slug
+    - tagged-identity
+    - text-metrics
+    - wave
+    - zip
+  hasky_mode:
+    - hasky-extensions
+  other:
+    - arch-workstation
+    - lsa
+    - mupdf-page
+  python:
+    - flacize
+    - mkm3u
+    - wav2
+  svod:
+    - bootstrap
+    - octicons
+    - svod
+    - svod-concepts
+    - svod-core
+    - svod-logo
