@@ -2,6 +2,11 @@
 - name: Force generation of default XFCE4 config before first startup
   command: "xfconf-query -l"
 
+- name: Ensure ~/.config/xfce4/terminal exists
+  file:
+    path: "~/.config/xfce4/terminal"
+    state: directory
+
 - name: Configure the terminal
   copy:
     src: terminalrc
@@ -11,6 +16,11 @@
   copy:
     src: .xinitrc
     dest: "~/.xinitrc"
+
+- name: Modify .bash_profile to start XFCE on login
+  copy:
+    src: .bash_profile
+    dest: "~/.bash_profile"
 
 - name: Copy touchswitch.sh
   copy:
@@ -48,6 +58,10 @@
     dest: "~/.local/bin/pdf"
     remote_src: true
     mode: 0755
+- name: Ensure ~/.local/share/applications exists
+  file:
+    path: "~/.local/share/applications"
+    state: directory
 - name: Create the userapp-pdf.desktop file
   copy:
     src: userapp-pdf.desktop
@@ -92,11 +106,14 @@
     - "image/jpeg"
     - "image/png"
 
+- name: Ensure ~/.config/autostart exists
+  file:
+    path: "~/.config/autostart"
+    state: directory
 - name: Disable touchpad on XFCE4 startup
   copy:
     src: disable-touchpad.desktop
     dest: "~/.config/autostart/disable-touchpad.desktop"
-
 - name: Enable numlock on startup
   copy:
     src: numlockx.desktop
