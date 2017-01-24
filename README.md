@@ -13,12 +13,13 @@ system (mostly for my later self, but you can use them as well).
 6. [Pacstrap](#pacstrap)
 7. [File system table](#file-system-table)
 8. [GRUB](#grub)
-9. [Play the root Ansible playbook](#play-the-root-ansible-playbook)
-10. [Set passwords](#set-passwords)
-11. [Reboot](#reboot)
-12. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
-13. [Optional: Setting default audio card](#optional-setting-default-audio-card)
-14. [Optional: Printer](#optional-printer)
+9. [Generate initial ramdisk environment](#generate-initial-ramdisk-environment)
+10. [Reboot](#reboot)
+11. [Play the root Ansible playbook](#play-the-root-ansible-playbook)
+12. [Set passwords](#set-passwords)
+13. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
+14. [Optional: Setting default audio card](#optional-setting-default-audio-card)
+15. [Optional: Printer](#optional-printer)
 
 This text has been placed into public domain by its author, Mark Karpov.
 
@@ -116,14 +117,19 @@ first, you should check you internet connection:
 # ping 8.8.8.8
 ```
 
-If there is no internet connection, get it (start `dhcpcd.service`)! Edit
-`/etc/pacman.d/mirrorlist` and pull up nearest server. Then refresh package
-databases and install basic packages:
+If there is no internet connection, get it (start/restart `dhcpcd.service`)!
+Edit `/etc/pacman.d/mirrorlist` and pull up nearest server. Then refresh
+package databases and install basic packages:
 
 ```
 # pacman -Syy
 # pacstrap /mnt base{,-devel}
 ```
+
+If you any noise about “unknown trust”, try:
+
+* Update the unknown keys, i.e. `pacman-key --refresh-keys`.
+* Manually upgrade `archlinux-keyring`, i.e. `pacman -S archlinux-keyring`.
 
 ## File system table
 
@@ -204,9 +210,30 @@ For `$fs_uuid` use:
 # grub-probe --target=fs_uuid $esp/EFI/Microsoft/Boot/bootmgfw.efi
 ```
 
+## Generate initial ramdisk environment
+
+Run:
+
+```
+# mkinitcpio -p linux
+```
+
+## Reboot
+
+Now, it's time to reboot:
+
+```
+# exit
+# umount /mnt/boot
+# umount /mnt/home
+# umount /mnt
+# swapoff /dev/sdxY # use your swap partition, if you've created one
+# reboot
+```
+
 ## Play the root Ansible playbook
 
-Install `git` and `ansible`:
+Login as root. Install `git` and `ansible`:
 
 ```
 # pacman -S git ansible
@@ -228,29 +255,17 @@ playbook:
 
 ## Set passwords
 
-As a root, set passwords for `root` and the normal user:
+As root, set passwords for `root` and the normal user:
 
 ```
 # passwd
 # passwd normal_user_name
 ```
 
-## Reboot
-
-Now, it's time to reboot:
-
-```
-# exit
-# umount /mnt/boot
-# umount /mnt/home
-# umount /mnt
-# swapoff /dev/sdxY # use your swap partition, if you've created one
-# reboot
-```
-
 ## Play the user Ansible playbook
 
-Clone contents of this repo to `/tmp` directory:
+Logout and login again now as normal user. Clone contents of this repo to
+`/tmp` directory:
 
 ```
 # git clone https://github.com/mrkkrp/arch-workstation.git /tmp/arch-workstation
@@ -266,6 +281,10 @@ playbook:
 
 This will ask for sudo password, enter it (use <kbd>↵ Enter</kbd> to finish
 input, it does not work with <kbd>C-m</kbd> well).
+
+When the execution finishes (it takes a while, several hours, so go have a
+beer in the meantime), re-login as normal user. You will login into fully
+set-up OS.
 
 ## Optional: Setting default audio card
 
