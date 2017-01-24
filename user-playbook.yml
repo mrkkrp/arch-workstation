@@ -23,7 +23,7 @@
     - include: tasks/emacs.yml
       tags: emacs
     - include: tasks/xfce.yml
-      tags: xcfe
+      tags: xfce
     - include: tasks/custom_apps.yml
       tags: custom_apps
     - include: tasks/projects_hierarchy.yml

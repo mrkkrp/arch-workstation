@@ -1,0 +1,100 @@
+---
+- name: Configure the terminal
+  copy:
+    src: terminalrc
+    dest: "~/.config/xfce4/terminal/terminalrc"
+
+- name: Put proper .xinitrc into place
+  copy:
+    src: .xinitrc
+    dest: "~/.xinitrc"
+
+- name: Copy touchswitch.sh
+  copy:
+    src: touchswitch.sh
+    dest: "~/.local/bin/touchswitch.sh"
+    mode: 0755
+
+- name: Setup keyboard shortcuts
+  copy:
+    src: xfce4-keyboard-shortcuts.xml
+    dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+
+- name: Setup sticky keys
+  copy:
+    src: accessibility.xml
+    dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/accessibility.xml"
+
+- name: Setup keyboard layout
+  copy:
+    src: keyboard-layout.xml
+    dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml"
+
+- name: Setup keyboard settings
+  copy:
+    src: keyboards.xml
+    dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+
+- name: Clone mupdf-page repo
+  git:
+    repo: "https://github.com/mrkkrp/mupdf-page.git"
+    dest: "/tmp/mupdf-page"
+- name: Copy the pdf script to ~/.local/bin
+  copy:
+    src: "/tmp/mupdf-page/pdf"
+    dest: "~/.local/bin/pdf"
+    remote_src: true
+    mode: 0755
+- name: Create the userapp-pdf.desktop file
+  copy:
+    src: userapp-pdf.desktop
+    dest: "~/.local/share/applications/userapp-pdf.desktop"
+    mode: 0644
+- name: Set userapp-pdf.desktop as the default app to use for PDF files
+  ini_file:
+    dest: "~/.config/mimeapps.list"
+    section: "Default Applications"
+    option: application/pdf
+    value: userapp-pdf.desktop
+    mode: 0644
+
+- name: Set Firefox as the default app for everything web-related
+  ini_file:
+    dest: "~/.config/mimeapps.list"
+    section: "Default Applications"
+    option: "{{ item }}"
+    value: firefox.desktop
+    mode: 0644
+  with_items:
+    - "application/x-extension-htm"
+    - "application/x-extension-html"
+    - "application/x-extension-shtml"
+    - "application/x-extension-xht"
+    - "application/x-extension-xhtml"
+    - "application/xhtml+xml"
+    - "text/html"
+    - "x-scheme-handler/chrome"
+    - "x-scheme-handler/ftp"
+    - "x-scheme-handler/http"
+    - "x-scheme-handler/https"
+
+- name: Set qiv as the default image viewer
+  ini_file:
+    dest: "~/.config/mimeapps.list"
+    section: "Default Applications"
+    option: "{{ item }}"
+    value: qiv.desktop
+    mode: 0644
+  with_items:
+    - "image/jpeg"
+    - "image/png"
+
+- name: Disable touchpad on XFCE4 startup
+  copy:
+    src: disable-touchpad.desktop
+    dest: "~/.config/autostart/disable-touchpad.desktop"
+
+- name: Enable numlock on startup
+  copy:
+    src: numlockx.desktop
+    dest: "~/.config/autostart/numlockx.desktop"
