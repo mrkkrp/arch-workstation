@@ -3,12 +3,8 @@
   git:
     repo: "https://github.com/mrkkrp/dot-emacs.git"
     dest: "~/.emacs.d/"
-- name: Test startup and install Emacs packages as part of it
+- name: Install Emacs packages and compile my config
   command: "python test-startup.py"
-  args:
-    chdir: "~/.emacs.d"
-- name: Compile Emacs configuration
-  command: "emacs --exec \"(progn (mk-compile-init-files) (mk-exit-emacs t))\""
   args:
     chdir: "~/.emacs.d"
 - name: Generate .offlineimaprc to be able to use Emacs as mail client
