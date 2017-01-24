@@ -12,9 +12,9 @@
   args:
     creates: "~/.local/bin/stack"
 - name: Install latest GHC globally with Stack
-  command: "stack setup"
+  command: "~/.local/bin/stack setup"
 - name: Install some Haskell tools globally
-  command: "stack install {{ item.name }}"
+  command: "~/.local/bin/stack install {{ item.name }}"
   args:
     creates: "~/.local/bin/{{ item.creates }}"
   with_items: "{{ haskell_global_packages }}"
