@@ -98,3 +98,6 @@
   copy:
     src: numlockx.desktop
     dest: "~/.config/autostart/numlockx.desktop"
+
+- name: Setup Emacs-like bindings in XFCE
+  command: "xfconf-query -c xsettings -p /Gtk/KeyThemeName -s Emacs"
