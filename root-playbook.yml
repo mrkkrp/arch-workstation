@@ -38,8 +38,8 @@
         name: ntpdate
         enabled: yes
 
-    - name: Setup console font
-      copy:
+    - name: Setup console
+      template:
         src: vconsole.conf
         dest: "/etc/vconsole.conf"
 

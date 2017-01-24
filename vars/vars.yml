@@ -3,6 +3,7 @@ user_name: mark
 time_zone: Europe/Moscow
 video_card_brand: nvidia        # or intel, or amd_ati
 video_card_module: nvidia       # or radeon
+software_dvorak: false
 pacman_packages:
   - alsa-lib
   - alsa-oss
