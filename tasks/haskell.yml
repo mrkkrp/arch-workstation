@@ -18,3 +18,4 @@
   args:
     creates: "~/.local/bin/{{ item.creates }}"
   with_items: "{{ haskell_global_packages }}"
+  ignore_errors: yes
