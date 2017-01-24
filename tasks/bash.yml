@@ -30,3 +30,5 @@
     regexp: "^export PATH="
     line: "export PATH={{ ':'.join(dirs_on_path) }}:$PATH"
     state: present
+- name: Make the changes to .bashrc file take effect immediately
+  command: "source ~/.bashrc"
