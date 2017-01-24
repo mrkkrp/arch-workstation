@@ -13,6 +13,7 @@
   command: "makepkg -si --noconfirm"
   args:
     chdir: "/tmp/{{ item }}"
+    creates: "/usr/bin/{{ item }}"
   with_items: "{{ manual_packages }}"
 - name: Create alternative yaourt working directory
   file:
@@ -30,3 +31,4 @@
   args:
     creates: "~/{{ yaourt_work_dir }}/installed-{{ item }}"
   with_items: "{{ yaourt_packages }}"
+  ignore_errors: yes
