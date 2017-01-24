@@ -17,7 +17,6 @@ pacman_packages:
   - autoconf
   - automake
   - aws-cli
-  - banshee
   - bash
   - bc
   - binutils
@@ -129,7 +128,6 @@ pacman_packages:
   - timidity-freepats
   - tmux
   - tor
-  - tor-browser-en
   - tumbler
   - unrar
   - unzip
@@ -177,10 +175,12 @@ manual_packages:
   - package-query
   - yaourt
 yaourt_packages:
+  - banshee
   - google-chrome
   - mu-git
   - telegram-desktop-bin
   - tmate
+  - tor-browser-en
   - ttf-google-fonts-git
 yaourt_work_dir: yaourt-work
 haskell_global_packages:

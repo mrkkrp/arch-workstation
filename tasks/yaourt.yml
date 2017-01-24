@@ -1,8 +1,4 @@
 ---
-- name: Create the Downloads directory
-  file:
-    path: "~/Downloads"
-    state: directory
 - name: Download archives of packages to install manually
   get_url:
     url: "https://aur.archlinux.org/cgit/aur.git/snapshot/{{ item }}.tar.gz"
@@ -30,7 +26,7 @@
     state: present
   become: yes
 - name: Install packages with Yaourt
-  command: "yaourt -S --noconfirm {{ item }} && touch ~/{{ yaourt_work_dir }}/installed-{{ item }}"
+  shell: "yaourt -S --noconfirm {{ item }} && touch ~/{{ yaourt_work_dir }}/installed-{{ item }}"
   args:
     creates: "~/{{ yaourt_work_dir }}/installed-{{ item }}"
   with_items: "{{ yaourt_packages }}"

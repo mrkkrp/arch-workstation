@@ -29,6 +29,10 @@
       command: "ntpd -qg"
     - name: Update hardware clock from current software clock
       command: "hwclock --systohc"
+    - name: Ensure the dir for ntpdate configuration exists
+      file:
+        path: "/etc/systemd/system/ntpdate.service.d"
+        state: directory
     - name: Configure ntpdate service to update hardware clock as well
       copy:
         src: hwclock.conf
@@ -71,7 +75,7 @@
       pacman:
         name: xf86-video-ati
         state: latest
-      when: video_card_brand == "amd/ati"
+      when: video_card_brand == "amd_ati"
     - name: Install packages for Intel video card
       pacman:
         name: xf86-video-intel
@@ -85,7 +89,7 @@
         state: present
       when: video_card_module is defined
 
-    - name: Generate initial ramdisk environment
+    - name: Regenerate initial ramdisk environment
       command: "mkinitcpio -p linux"
 
     - name: Enable automatic internet connection on start
