@@ -3,27 +3,6 @@ user_name: mark
 time_zone: Europe/Moscow
 video_card_brand: nvidia        # or intel, or amd_ati
 video_card_module: nvidia       # or radeon
-git_user_email: markkarpov@opmbx.org
-git_user_name: mrkkrp
-git_cred_cache_timeout: 43200
-git_global_ignore:
-  - ".flycheck_*"
-  - "TAGS"
-offline_imap_email: markkarpov@openmailbox.org
-vital_dirs:
-  - "~/.local/bin"
-  - "~/.local/share"
-  - "~/Downloads"
-  - "~/projects/music"
-  - "~/projects/programs"
-  - "~/projects/tests"
-  - "~/projects/work"
-  - "~/work"
-dirs_on_path:
-  - "~/.gem/ruby/2.3.0/bin"
-  - "~/.local/bin"
-  - "~/.node_modules_global/bin"
-  - "~/bin"
 pacman_packages:
   - alsa-lib
   - alsa-oss
@@ -168,6 +147,31 @@ pacman_packages:
   - xfce4
   - xfce4-xkb-plugin
   - zenity
+
+## The variables below only make sense for user-playbook.yml, so if you're
+## running the root-playbook.yml right now, you may not bother editing them.
+
+git_user_email: markkarpov@opmbx.org
+git_user_name: mrkkrp
+git_cred_cache_timeout: 43200
+git_global_ignore:
+  - ".flycheck_*"
+  - "TAGS"
+offline_imap_email: markkarpov@openmailbox.org
+vital_dirs:
+  - "~/.local/bin"
+  - "~/.local/share"
+  - "~/Downloads"
+  - "~/projects/music"
+  - "~/projects/programs"
+  - "~/projects/tests"
+  - "~/projects/work"
+  - "~/work"
+dirs_on_path:
+  - "~/.gem/ruby/2.3.0/bin"
+  - "~/.local/bin"
+  - "~/.node_modules_global/bin"
+  - "~/bin"
 manual_packages:
   - package-query
   - yaourt
