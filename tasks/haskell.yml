@@ -11,7 +11,7 @@
   shell: "cp /tmp/stack-*-linux-x86_64/stack ~/.local/bin/stack"
   args:
     creates: "~/.local/bin/stack"
-- name: Install latest GHC globally with Stack
+- name: Install the latest GHC globally with Stack
   command: "~/.local/bin/stack setup"
 - name: Install some Haskell tools globally
   command: "~/.local/bin/stack install {{ item.name }}"
