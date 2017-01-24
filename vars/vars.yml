@@ -30,6 +30,7 @@ pacman_packages:
   - diffutils
   - dosfstools
   - e2fsprogs
+  - emacs
   - exo
   - fakeroot
   - file
