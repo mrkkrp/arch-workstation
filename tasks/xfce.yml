@@ -1,4 +1,7 @@
 ---
+- name: Force generation of default XFCE4 config before first startup
+  command: "xfconf-query -l"
+
 - name: Configure the terminal
   copy:
     src: terminalrc
