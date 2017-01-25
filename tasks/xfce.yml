@@ -48,6 +48,11 @@
     src: keyboards.xml
     dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
 
+- name: Setup Thunar settings
+  copy:
+    src: thunar.xml
+    dest: "~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+
 - name: Clone mupdf-page repo
   git:
     repo: "https://github.com/mrkkrp/mupdf-page.git"
