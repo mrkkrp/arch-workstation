@@ -254,29 +254,30 @@ playbook:
 # ansible-playbook root-playbook.yml
 ```
 
+Copy the repo to newly created user's home directory:
+
+```
+# cp -rv /tmp/arch-workstation /home/<username>/arch-workstation
+# chown -R <username> /home/<username>/arch-workstation
+```
+
 ## Set passwords
 
 As root, set passwords for `root` and the normal user:
 
 ```
 # passwd
-# passwd normal_user_name
+# passwd <username>
 ```
 
 ## Play the user Ansible playbook
 
-Logout and login again now as normal user. Clone contents of this repo to
-`/tmp` directory:
+Logout and login again now as normal user.
+
+Go to `~/arch-workstation` directory and and play the user playbook:
 
 ```
-# git clone https://github.com/mrkkrp/arch-workstation.git /tmp/arch-workstation
-```
-
-`cd` into the repo, edit `vars/vars.yml` as needed, and play the user
-playbook:
-
-```
-# cd /tmp/arch-workstation/
+# cd ~/arch-workstation/
 # ansible-playbook -K user-playbook.yml
 ```
 
