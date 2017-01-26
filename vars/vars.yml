@@ -43,6 +43,7 @@ pacman_packages:
   - binutils
   - bzip2
   - cairo
+  - clementine
   - coreutils
   - cryptsetup
   - cups
@@ -172,7 +173,6 @@ manual_packages:
   - package-query
   - yaourt
 yaourt_packages:
-  - banshee
   - google-chrome
   - mu-git
   - telegram-desktop-bin
