@@ -181,7 +181,6 @@ yaourt_packages:
   - mu-git
   - telegram-desktop-bin
   - tmate
-  - tor-browser-en
   - ttf-google-fonts-git
 yaourt_work_dir: yaourt-work
 haskell_global_packages:
@@ -195,8 +194,6 @@ haskell_global_packages:
     creates: hasktags
   - name: hlint
     creates: hlint
-  - name: neil
-    creates: neil
 projects_to_clone:
   emacs_lisp:
     - ace-popup-menu
