@@ -13,14 +13,13 @@ system (mostly for my later self, but you can use them as well).
 6. [Pacstrap](#pacstrap)
 7. [File system table](#file-system-table)
 8. [GRUB](#grub)
-9. [Generate initial ramdisk environment](#generate-initial-ramdisk-environment)
-10. [Reboot](#reboot)
-11. [Play the root Ansible playbook](#play-the-root-ansible-playbook)
-12. [Set passwords](#set-passwords)
-13. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
-14. [Optional: Setting default audio card](#optional-setting-default-audio-card)
-15. [Optional: Printer](#optional-printer)
-16. [Optional: wireless connection](#optional-wireless-connection)
+9. [Reboot](#reboot)
+10. [Play the root Ansible playbook](#play-the-root-ansible-playbook)
+11. [Set passwords](#set-passwords)
+12. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
+13. [Optional: Setting default audio card](#optional-setting-default-audio-card)
+14. [Optional: Printer](#optional-printer)
+15. [Optional: wireless connection](#optional-wireless-connection)
 
 This text has been placed into public domain by its author, Mark Karpov.
 
@@ -119,7 +118,7 @@ first, you should check you internet connection:
 ```
 
 If there is no internet connection, get it (start/restart `dhcpcd.service`)!
-Edit `/etc/pacman.d/mirrorlist` and pull up nearest server. Then refresh
+Edit `/etc/pacman.d/mirrorlist` and **pull up nearest server**. Then refresh
 package databases and install basic packages:
 
 ```
@@ -180,10 +179,10 @@ Generate `grub.cfg`:
 # grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-Edit it as you wish (remove that submenu and set timeout to 0 if you don't
-want dual boot machine). If you have BIOS motherboard, GRUB should have
-found other operating systems, however if you have UEFI motherboard you need
-to manually create record for Windows (if you care at all):
+**Edit it** as you wish (remove that submenu and set timeout to 0 if you
+don't want dual boot machine). If you have BIOS motherboard, GRUB should
+have found other operating systems, however if you have UEFI motherboard you
+need to manually create record for Windows (if you care at all):
 
 ```
 if [ "${grub_platform}" == "efi" ]; then
@@ -211,19 +210,13 @@ For `$fs_uuid` use:
 # grub-probe --target=fs_uuid $esp/EFI/Microsoft/Boot/bootmgfw.efi
 ```
 
-## Generate initial ramdisk environment
-
-Run:
-
-```
-# mkinitcpio -p linux
-```
-
 ## Reboot
 
 Now, it's time to reboot:
 
 ```
+# mkinitcpio -p linux # TODO not sure if it's necessary
+# systemctl enable dhcpcd.service # so we have internet after reboot
 # exit
 # umount /mnt/boot
 # umount /mnt/home
@@ -246,7 +239,7 @@ Clone contents of this repo to `/tmp` directory:
 # git clone https://github.com/mrkkrp/arch-workstation.git /tmp/arch-workstation
 ```
 
-`cd` into the repo, edit `vars/vars.yml` as needed, and play the root
+`cd` into the repo, **edit** `vars/vars.yml` as needed, and play the root
 playbook:
 
 ```
