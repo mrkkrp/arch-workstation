@@ -270,8 +270,8 @@ Logout and login again now as normal user.
 Go to `~/arch-workstation` directory and and play the user playbook:
 
 ```
-# cd ~/arch-workstation/
-# ansible-playbook -K user-playbook.yml
+$ cd ~/arch-workstation/
+$ ansible-playbook -K user-playbook.yml
 ```
 
 This will ask for sudo password, enter it (use <kbd>↵ Enter</kbd> to finish
