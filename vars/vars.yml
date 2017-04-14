@@ -242,8 +242,7 @@ projects_to_clone:
     - wav2
   svod:
     - bootstrap
-    - octicons
     - svod
-    - svod-concepts
+    - svod-articles
     - svod-core
     - svod-logo
