@@ -207,6 +207,7 @@ projects_to_clone:
     - vimish-fold
     - zzz-to-char
   haskell:
+    - JuicyPixels-extra
     - alga
     - cue-sheet
     - data-check
@@ -215,7 +216,7 @@ projects_to_clone:
     - hspec-megaparsec
     - htaglib
     - identicon
-    - JuicyPixels-extra
+    - lame
     - megaparsec
     - megaparsec-site
     - mida
@@ -225,6 +226,7 @@ projects_to_clone:
     - plan-b
     - req
     - req-conduit
+    - scale
     - slug
     - tagged-identity
     - text-metrics
@@ -236,6 +238,7 @@ projects_to_clone:
     - arch-workstation
     - lsa
     - mupdf-page
+    - openmw-automation
   python:
     - flacize
     - mkm3u
