@@ -3,6 +3,7 @@
   git:
     repo: "https://github.com/mrkkrp/dot-emacs.git"
     dest: "~/.emacs.d/"
+    version: master
 - name: Install Emacs packages and compile my config
   command: "python test-startup.py"
   args:

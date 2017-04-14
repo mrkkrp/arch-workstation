@@ -57,6 +57,7 @@
   git:
     repo: "https://github.com/mrkkrp/mupdf-page.git"
     dest: "/tmp/mupdf-page"
+    version: master
 - name: Copy the pdf script to ~/.local/bin
   copy:
     src: "/tmp/mupdf-page/pdf"

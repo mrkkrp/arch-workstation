@@ -3,6 +3,7 @@
   git:
     repo: "https://github.com/mrkkrp/lsa.git"
     dest: "/tmp/lsa"
+    version: master
 - name: Build LSA
   command: "make"
   args:
@@ -18,6 +19,7 @@
   git:
     repo: "https://github.com/mrkkrp/flacize.git"
     dest: "/tmp/flacize"
+    version: master
 - name: Install Flacize requirements
   pip:
     requirements: requirements.txt
@@ -34,6 +36,7 @@
   git:
     repo: "https://github.com/mrkkrp/mkm3u.git"
     dest: "/tmp/mkm3u"
+    version: master
 - name: Install mkm3u
   command: "bash install.sh"
   args:
@@ -45,6 +48,7 @@
   git:
     repo: "https://github.com/mrkkrp/mupdf-page.git"
     dest: "/tmp/mupdf-page"
+    version: master
 - name: Copy the pdf script to ~/.local/bin
   copy:
     src: "/tmp/mupdf-page/pdf"

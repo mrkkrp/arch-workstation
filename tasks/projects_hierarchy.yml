@@ -3,29 +3,35 @@
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/emacs-lisp/{{ item }}"
+    version: master
   with_items: "{{ projects_to_clone.emacs_lisp }}"
 - name: Clone Haskell projects
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/haskell/{{ item }}"
+    version: master
   with_items: "{{ projects_to_clone.haskell }}"
 - name: Hasky Mode projects
   git:
     repo: "https://github.com/hasky-mode/{{ item }}.git"
     dest: "~/projects/programs/hasky-mode/{{ item }}"
+    version: master
   with_items: "{{ projects_to_clone.hasky_mode }}"
 - name: Other projects
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/other/{{ item }}"
+    version: master
   with_items: "{{ projects_to_clone.other }}"
 - name: Python projects
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/python/{{ item }}"
+    version: master
   with_items: "{{ projects_to_clone.python }}"
 - name: Svod
   git:
     repo: "https://github.com/svod-music/{{ item }}.git"
     dest: "~/projects/programs/svod/{{ item }}"
+    version: master
   with_items: "{{ projects_to_clone.svod }}"
