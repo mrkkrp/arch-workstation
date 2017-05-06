@@ -19,7 +19,6 @@ system (mostly for my later self, but you can use them as well).
 12. [Play the user Ansible playbook](#play-the-user-ansible-playbook)
 13. [Optional: Setting default audio card](#optional-setting-default-audio-card)
 14. [Optional: Printer](#optional-printer)
-15. [Optional: wireless connection](#optional-wireless-connection)
 
 This text has been placed into public domain by its author, Mark Karpov.
 
@@ -320,22 +319,3 @@ complete.
 You need to set your printer as default, so you can use it via `lpr` (Emacs
 uses `lpr`, for example): `Printers` → `Your Printer` → `Set as Server
 Default`.
-
-## Optional: Wireless connection
-
-You should have all the necessary packages by now, so just run:
-
-```
-# wifi-menu
-```
-
-Select connection you want to use and enter password. When done, go to
-`/etc/netctl` and do:
-
-```
-# netctl start x
-# netctl enable x
-```
-
-Where `x` is the name of file consisting of combination of the interface
-name and the connection name.

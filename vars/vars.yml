@@ -107,6 +107,8 @@ pacman_packages:
   - mupdf
   - nano
   - netctl
+  - network-manager-applet
+  - networkmanager
   - nodejs
   - npm
   - ntfs-3g

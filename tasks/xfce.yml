@@ -127,3 +127,9 @@
 
 - name: Setup Emacs-like bindings in XFCE
   command: "xfconf-query -c xsettings -p /Gtk/KeyThemeName -s Emacs"
+
+- name: Enable and start Network Manager
+  service:
+    name: NetworkManager
+    enabled: yes
+    state: started
