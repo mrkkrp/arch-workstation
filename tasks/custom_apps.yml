@@ -54,4 +54,4 @@
     src: "/tmp/mupdf-page/pdf"
     dest: "~/.local/bin/pdf"
     remote_src: true
-    mode: 755
+    mode: 0755
