@@ -8,7 +8,3 @@
   command: "python test-startup.py"
   args:
     chdir: "~/.emacs.d"
-- name: Generate .offlineimaprc to be able to use Emacs as mail client
-  template:
-    src: .offlineimaprc
-    dest: "~/.offlineimaprc"
