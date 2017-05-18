@@ -175,7 +175,6 @@ manual_packages:
   - yaourt
 yaourt_packages:
   - google-chrome
-  - mu-git
   - telegram-desktop-bin
   - tmate
   - ttf-google-fonts-git
