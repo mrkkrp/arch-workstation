@@ -4,13 +4,12 @@ time_zone: Europe/Moscow
 video_card_brand: nvidia        # or intel, or amd_ati
 video_card_module: nvidia       # or radeon
 software_dvorak: false
-git_user_email: markkarpov@opmbx.org
+git_user_email: markkarpov92@gmail.com
 git_user_name: mrkkrp
 git_cred_cache_timeout: 43200
 git_global_ignore:
   - ".flycheck_*"
   - "TAGS"
-offline_imap_email: markkarpov@openmailbox.org
 vital_dirs:
   - "~/.local/bin"
   - "~/.local/share"
