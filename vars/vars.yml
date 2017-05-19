@@ -241,10 +241,3 @@ projects_to_clone:
   python:
     - flacize
     - mkm3u
-    - wav2
-  svod:
-    - bootstrap
-    - svod
-    - svod-articles
-    - svod-core
-    - svod-logo
