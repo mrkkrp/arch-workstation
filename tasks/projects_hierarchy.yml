@@ -5,6 +5,11 @@
     dest: "~/projects/programs/emacs-lisp/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.emacs_lisp }}"
+- name: Clone Common Lisp projects
+  git:
+    repo: "https://github.com/mrkkrp/{{ item }}.git"
+    dest: "~/projects/programs/common-lisp/{{ item }}"
+    version: master
 - name: Clone Haskell projects
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
@@ -29,9 +34,3 @@
     dest: "~/projects/programs/python/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.python }}"
-- name: Svod
-  git:
-    repo: "https://github.com/svod-music/{{ item }}.git"
-    dest: "~/projects/programs/svod/{{ item }}"
-    version: master
-  with_items: "{{ projects_to_clone.svod }}"

@@ -205,27 +205,29 @@ projects_to_clone:
     - typit
     - vimish-fold
     - zzz-to-char
+  common_lisp:
+    - cl-ansi-term
+    - cl-readline
+    - mk-string-metrics
+    - trivial-update
+    - unix-opts
   haskell:
     - JuicyPixels-extra
-    - alga
     - cue-sheet
     - data-check
     - flac
     - flac-picture
+    - forma
     - hspec-megaparsec
     - htaglib
     - identicon
     - lame
     - megaparsec
-    - megaparsec-site
-    - mida
-    - mrkkrp.github.io
     - pagination
     - path-io
     - plan-b
     - req
     - req-conduit
-    - scale
     - slug
     - tagged-identity
     - text-metrics
