@@ -10,6 +10,7 @@
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/common-lisp/{{ item }}"
     version: master
+  with_items: "{{ projects_to_clone.common_lisp }}"
 - name: Clone Haskell projects
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
