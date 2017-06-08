@@ -222,6 +222,7 @@ projects_to_clone:
     - htaglib
     - identicon
     - lame
+    - markkarpov.com
     - megaparsec
     - pagination
     - path-io
