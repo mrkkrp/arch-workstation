@@ -225,6 +225,7 @@ projects_to_clone:
     - markkarpov.com
     - megaparsec
     - pagination
+    - parser-combinators
     - path-io
     - plan-b
     - req
