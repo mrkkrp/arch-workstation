@@ -56,7 +56,6 @@
       with_items:
         - mesa
         - xorg-server
-        - xorg-server-utils
         - xorg-xinit
 
     - block:
