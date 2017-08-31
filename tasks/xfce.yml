@@ -81,12 +81,17 @@
     value: userapp-pdf.desktop
     mode: 0644
 
-- name: Set Firefox as the default app for everything web-related
+- name: Create the userapp-chrome.desktop file
+  copy:
+    src: userapp-chrome.desktop
+    dest: "~/.local/share/applications/userapp-chrome.desktop"
+    mode: 0644
+- name: Set Google Chrome as the default app for everything web-related
   ini_file:
     dest: "~/.config/mimeapps.list"
     section: "Default Applications"
     option: "{{ item }}"
-    value: firefox.desktop
+    value: userapp-chrome.desktop
     mode: 0644
   with_items:
     - "application/x-extension-htm"

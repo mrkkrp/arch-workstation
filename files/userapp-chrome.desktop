@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Terminal=false
+Exec=/usr/bin/google-chrome-stable
+Name=Chrome Web Store Payments
+Comment=Custom definition for Google Chrome
