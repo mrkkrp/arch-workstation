@@ -25,7 +25,7 @@
       <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-applicationsmenu"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Alt&gt;1" type="string" value="thunar"/>
-      <property name="&lt;Alt&gt;2" type="string" value="exo-open --launch WebBrowser"/>
+      <property name="&lt;Alt&gt;2" type="string" value="google-chrome-stable"/>
       <property name="&lt;Alt&gt;F3" type="string" value="xfce4-terminal"/>
       <property name="&lt;Alt&gt;3" type="string" value="emacs"/>
       <property name="&lt;Alt&gt;F5" type="string" value="touchswitch.sh"/>
