@@ -222,8 +222,8 @@ projects_to_clone:
     - htaglib
     - identicon
     - lame
-    - markkarpov.com
     - megaparsec
+    - mmark
     - pagination
     - parser-combinators
     - path-io
@@ -237,6 +237,7 @@ projects_to_clone:
     - zip
   hasky_mode:
     - hasky-extensions
+    - hasky-stack
   other:
     - arch-workstation
     - lsa
