@@ -29,6 +29,7 @@
       <property name="&lt;Alt&gt;F3" type="string" value="xfce4-terminal"/>
       <property name="&lt;Alt&gt;3" type="string" value="emacs"/>
       <property name="&lt;Alt&gt;F5" type="string" value="touchswitch.sh"/>
+      <property name="&lt;Alt&gt;4" type="string" value="cool-retro-term --fullscreen"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
