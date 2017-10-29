@@ -43,6 +43,7 @@ pacman_packages:
   - bzip2
   - cairo
   - clementine
+  - cool-retro-term
   - coreutils
   - cryptsetup
   - cups
