@@ -224,6 +224,7 @@ projects_to_clone:
     - lame
     - megaparsec
     - mmark
+    - modern-uri
     - pagination
     - parser-combinators
     - path-io
