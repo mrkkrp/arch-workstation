@@ -225,6 +225,7 @@ projects_to_clone:
     - lame
     - megaparsec
     - mmark
+    - mmark-ext
     - modern-uri
     - pagination
     - parser-combinators
