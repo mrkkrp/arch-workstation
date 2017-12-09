@@ -102,7 +102,6 @@ pacman_packages:
   - man-db
   - man-pages
   - mariadb
-  - markdown
   - mdadm
   - mupdf
   - nano
