@@ -220,6 +220,8 @@ projects_to_clone:
     - forma
     - hspec-megaparsec
     - htaglib
+    - html-entity-map
+    - html-entity-map-gen
     - identicon
     - lame
     - megaparsec
