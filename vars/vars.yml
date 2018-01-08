@@ -223,6 +223,7 @@ projects_to_clone:
     - html-entity-map
     - html-entity-map-gen
     - identicon
+    - imprint
     - lame
     - megaparsec
     - mmark
