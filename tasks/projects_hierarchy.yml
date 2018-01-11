@@ -1,35 +1,40 @@
 ---
-- name: Clone Emacs Lisp projects
+- name: Clone Emacs Lisp repos
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/emacs-lisp/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.emacs_lisp }}"
-- name: Clone Common Lisp projects
+- name: Clone Common Lisp repos
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/common-lisp/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.common_lisp }}"
-- name: Clone Haskell projects
+- name: Clone Haskell repos
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/haskell/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.haskell }}"
-- name: Hasky Mode projects
+- name: Clone MMark repos
+  git:
+    repo: "https://github.com/mmark-md/{{ item }}.git"
+    dest: "~/projects/programs/mmark/{{ item }}"
+    version: master
+- name: Hasky Mode repos
   git:
     repo: "https://github.com/hasky-mode/{{ item }}.git"
     dest: "~/projects/programs/hasky-mode/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.hasky_mode }}"
-- name: Other projects
+- name: Other repos
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/other/{{ item }}"
     version: master
   with_items: "{{ projects_to_clone.other }}"
-- name: Python projects
+- name: Python repos
   git:
     repo: "https://github.com/mrkkrp/{{ item }}.git"
     dest: "~/projects/programs/python/{{ item }}"

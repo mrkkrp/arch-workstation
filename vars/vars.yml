@@ -226,8 +226,6 @@ projects_to_clone:
     - imprint
     - lame
     - megaparsec
-    - mmark
-    - mmark-ext
     - modern-uri
     - pagination
     - parser-combinators
@@ -240,6 +238,11 @@ projects_to_clone:
     - text-metrics
     - wave
     - zip
+  mmark:
+    - flycheck-mmark
+    - mmark
+    - mmark-cli
+    - mmark-ext
   hasky_mode:
     - hasky-extensions
     - hasky-stack
