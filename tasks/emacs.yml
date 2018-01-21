@@ -4,6 +4,11 @@
     repo: "https://github.com/mrkkrp/dot-emacs.git"
     dest: "~/.emacs.d/"
     version: master
+- name: Clone Proof General
+  git:
+    repo: "https://github.com/ProofGeneral/PG.git"
+    dest: "~/.emacs.d/proof-general"
+    version: master
 - name: Install Emacs packages and compile my config
   command: "python test-startup.py"
   args:
