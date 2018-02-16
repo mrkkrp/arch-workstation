@@ -51,6 +51,7 @@ pacman_packages:
   - device-mapper
   - dhcpcd
   - diffutils
+  - docker
   - dosfstools
   - e2fsprogs
   - emacs
@@ -109,6 +110,7 @@ pacman_packages:
   - netctl
   - network-manager-applet
   - networkmanager
+  - nginx-mainline
   - nodejs
   - npm
   - ntfs-3g
