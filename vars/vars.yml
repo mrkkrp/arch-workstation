@@ -208,12 +208,6 @@ projects_to_clone:
     - typit
     - vimish-fold
     - zzz-to-char
-  common_lisp:
-    - cl-ansi-term
-    - cl-readline
-    - mk-string-metrics
-    - trivial-update
-    - unix-opts
   haskell:
     - JuicyPixels-extra
     - cue-sheet
