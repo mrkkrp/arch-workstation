@@ -211,7 +211,6 @@ projects_to_clone:
   haskell:
     - JuicyPixels-extra
     - cue-sheet
-    - data-check
     - flac
     - flac-picture
     - forma
@@ -227,7 +226,6 @@ projects_to_clone:
     - pagination
     - parser-combinators
     - path-io
-    - plan-b
     - req
     - req-conduit
     - slug
