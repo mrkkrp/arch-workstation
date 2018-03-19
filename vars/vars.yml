@@ -199,7 +199,6 @@ projects_to_clone:
     - char-menu
     - common-lisp-snippets
     - cyphejor
-    - ebal
     - fix-input
     - fix-word
     - kill-or-bury-alive
