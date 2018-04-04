@@ -1,5 +1,8 @@
 # Arch Linux Installation Guide
 
+*I don't use this anymore. I use NixOS, see:
+https://github.com/mrkkrp/nix-workstation.*
+
 OS like Arch Linux allow great deal of flexibility and customization.
 Installation of such a system can be thought as building of unique system
 from scratch. Here I provide instructions how to re-create my own Arch Linux
